@@ -28,8 +28,12 @@ function submitForm(){
     }
     let promiseResult = fetchServer("/Users/login", "POST", encodeFormData(data));
     promiseResult.then(function (result){
-        console.log(result);
+        if(result != null){
+            document.cookie = `access_token=${result.id}; expires=${new Date(new Date().getTime()+result.ttl).toGMTString()}; path=/ `
+            window.location.href = "index.html";
+        }
     })
+
 }
 
 $("login").addEventListener("submit", () => submitForm());
