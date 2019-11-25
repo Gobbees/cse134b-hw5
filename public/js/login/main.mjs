@@ -1,3 +1,5 @@
+import {fetchServer} from "/public/js/serverHandler.mjs"
+
 function $(id) {
     return document.getElementById(id);
 }
@@ -18,36 +20,16 @@ function formToDict(form){
     return dictionary
 }
 
-async function submitForm(){
+function submitForm(){
     let data = formToDict(new FormData($("login")));
     if(data.username.includes("@")){
         data.email = data.username;
         delete data.username;
     }
-    console.log(data);
-    try{
-        await fetch("http://fa19server.appspot.com/api/Users/login", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: encodeFormData(data)
-        }).then(function(response){
-                if(!response.ok){
-                    response.json().then(function(data){
-                        alert(`Error: ${data.error.message}`)
-                        console.log(data);
-                    })
-                }else{
-                    response.json().then(function(data){
-                        console.log(data);
-                    })
-                }
-            } 
-        );
-    }catch(error){
-        alert(`The following problem has happened: ${error}. Please try again`);
-    }
+    let promiseResult = fetchServer("/Users/login", "POST", encodeFormData(data));
+    promiseResult.then(function (result){
+        console.log(result);
+    })
 }
 
 $("login").addEventListener("submit", () => submitForm());
