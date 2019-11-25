@@ -3,7 +3,7 @@
  * @returns the access_token of the open session (if open), otherwise undefined
  */
 export function checkSession() {
-    console.log(extractAccessToken(document.cookie));
+    return extractAccessToken(document.cookie);
 }
 
 /**
