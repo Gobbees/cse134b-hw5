@@ -8,7 +8,7 @@ export function checkSession() {
 
 /**
  * Extract the value 'access_token' from the cookie
- * @param cookie the cookie
+ * @param {string} cookie the cookie
  */
 function extractAccessToken(cookie) {
     var cookieName = "access_token="
