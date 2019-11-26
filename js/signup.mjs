@@ -26,8 +26,7 @@ function submitForm() {
         let promiseResult = fetchServer("/Users", "POST", encodeFormData(dictionaryData));
         promiseResult.then(function (result) {
             if (result != null) {
-                delete dictionaryData.email
-                login(dictionaryData);
+                console.log("signup successful!");
             }
         })
     }
