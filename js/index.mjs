@@ -32,8 +32,8 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log("TODO: add item pressed.");
     });    
     $("btnLogout").addEventListener("click", () => {
-        logout();
-        window.location.href = "login.html";
+        let promise = logout();
+        promise.then(() => window.location.href = "login.html");
     });
     getSessionData(access_token);
 });

@@ -62,11 +62,13 @@ function _getCookieValue(name) {
 
 /**
  * Logout the user
+ * 
+ * @returns {Promise} the request sent to the server. Wait for it!
  */
 export function logout() {
     let access_token = _getCookieValue("access_token");
     if(access_token != undefined){
         document.cookie = `access_token=NONE; expires=Thu, 01 Jan 1970 00:00:00 GMT"; path=/`
-        fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
+        return fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
     }
 }
