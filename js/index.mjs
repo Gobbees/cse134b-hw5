@@ -33,7 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });    
     $("btnLogout").addEventListener("click", () => {
         logout();
-        alert("Logout Success");
         window.location.href = "login.html";
     });
     getSessionData(access_token);
