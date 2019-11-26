@@ -43,8 +43,13 @@ export function login(data) {
     let promiseResult = fetchServer("/Users/login", "POST", encodeFormData(data));
     promiseResult.then(function (result) {
         if (result != null) {
-            let expirationDate = 
-            document.cookie = `access_token=${result.id}; expires=${new Date(new Date().getTime() + result.ttl).toGMTString()}; path=/ `;
+            let expirationDate = new Date(new Date().getTime() + result.ttl).toGMTString();
+            document.cookie = `access_token=${result.id}; expires=${expirationDate}; path=/ `;
+            if(data.username == null){
+                document.cookie = `user=${data.email}; expires=${expirationDate}; path=/`;
+            }else{
+                document.cookie = `user=${data.username}; expires=${expirationDate}; path=/`;
+            }
             window.location.href = "index.html";
         }
     });
