@@ -48,3 +48,19 @@ export function login(data) {
         }
     });
 }
+
+function _getCookieValue(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) return match[2];
+}
+
+/**
+ * Logout the user
+ */
+export function logout() {
+    let access_token = _getCookieValue("access_token");
+    if(access_token != undefined){
+        document.cookie = `access_token=NONE; expires=Thu, 01 Jan 1970 00:00:00 GMT"; path=/`
+        fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
+    }
+}
