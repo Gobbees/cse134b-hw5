@@ -1,4 +1,4 @@
-import {fetchServer} from "/public/js/serverHandler.mjs"
+import {fetchServer} from "./serverHandler.mjs"
 
 /**
  * Shortcut for document.getElementById

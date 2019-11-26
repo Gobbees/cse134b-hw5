@@ -9,7 +9,7 @@
 export async function fetchServer(suburl, method, body){
     let fetchResult;
     try{
-        fetchResult = await fetch(`http://fa19server.appspot.com/api${suburl}`, {
+        fetchResult = await fetch(`https://fa19server.appspot.com/api${suburl}`, {
             method: method,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

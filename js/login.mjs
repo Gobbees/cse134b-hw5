@@ -1,4 +1,4 @@
-import {$, formToDict, login} from "/public/js/utils.mjs"
+import {$, formToDict, login} from "./utils.mjs"
 
 function submitForm(){
     let data = formToDict(new FormData($("login")));

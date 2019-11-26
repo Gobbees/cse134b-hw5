@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>XmasWishlist</title>
     <script type="module" src="js/index.mjs"></script>
+    <style>
+        body {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <input type="button" value="logout" id="logout"/>
+    <input type="button" id="btnLogout" value="Logout" title="Logout"/>
     <h1>Xmas Wishlist</h1>
-    <ul id="wishlist">
-    </ul>
-    <input type="button" value="addItem"/>
-
-    <script type="module" src="js/index/main.mjs"></script>
+    <ul id="wishlist"></ul>
+    <input type="button" id="btnAddItem" value="Add Item" title="Add item"/>
+    <dialog id="dialog"></dialog>
 </body>
 </html>
