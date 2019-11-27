@@ -1,13 +1,14 @@
 import {handleServiceWorkerDown} from "./index.mjs"
+import {getCookieValue} from "./utils.mjs"
 
-const SECONDS_BETWEEN_SYNC = 2
+const SECONDS_BETWEEN_SYNC = 2000
 
 /**
  * Handle Service Worker Response
  * @param data a dictionary containing the command given by the client and the result of the operation
  */
 function handleServiceWorkerResponse(data){
-
+    console.log(data);
 }
 
 /**
@@ -17,7 +18,8 @@ function sendToWorker() {
     if(localStorage.getItem("items") == null){
         //This means that either we are in a new page and we have to retrieve from data from the server
         sendMessage({
-            command: "retrieveFromServer"
+            command: "retrieveFromServer",
+            access_token: getCookieValue("access_token")
         }).catch((err) => console.log("The following error occured: " + err))
     }
     //Every K seconds we want to upload data from our local storage to the server

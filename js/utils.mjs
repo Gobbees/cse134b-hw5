@@ -55,7 +55,11 @@ export function login(data) {
     });
 }
 
-function _getCookieValue(name) {
+/**
+ * Return the value associated to a cookie
+ * @param name the name of the cookie
+ */
+export function getCookieValue(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
@@ -66,7 +70,7 @@ function _getCookieValue(name) {
  * @returns {Promise} the request sent to the server. Wait for it!
  */
 export function logout() {
-    let access_token = _getCookieValue("access_token");
+    let access_token = getCookieValue("access_token");
     if(access_token != undefined){
         document.cookie = `access_token=NONE; expires=Thu, 01 Jan 1970 00:00:00 GMT"; path=/`
         return fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
