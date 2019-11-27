@@ -7,21 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Signup</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.min.js"></script>
+    <link rel="stylesheet" href="css/loginSignup.css">
+    <link rel="stylesheet" href="css/fade.css">
 </head>
 
 <body>
-    <h1>Signup</h1>
-    <form id="signup" onsubmit="return false">
-        <label>Username:</label><input name="username" type="text">
-        <br>
-        <label>Email:</label><input name="email" type="email">
-        <br>
-        <label>Password:</label><input type="password" name="password">
-        <br>
-        <label>Repeat Password:</label><input type="password" name="passwordRepeat">
-        <br>
-        <input type="submit" value="Register">
-    </form>
+    <div class="layer"></div>
+    <div class="centerBlock fade">
+        <h1>Signup</h1>
+        <form id="signup" onsubmit="return false">
+            <input class="inputText" placeholder="Username" name="username" type="text">
+            <br>
+            <input class="inputText" placeholder="Email" name="email" type="email">
+            <br>
+            <input class="inputText" placeholder="Password" type="password" name="password">
+            <br>
+            <input class="inputText" placeholder="Repeat Password" type="password" name="passwordRepeat">
+            <br>
+            <input class="btn" type="submit" value="Register">
+        </form>
+    </div>
     <script type="module" src="js/signup.mjs"></script>
 </body>
 
