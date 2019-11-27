@@ -7,19 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.min.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/fade.css">
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form id="login" onsubmit="return false">
-        <label>Username:</label><input name="username" type="text">
-        <br>
-        <label>Password:</label><input type="password" name="password">
-        <br>
-        <input type="submit" value="Login">
-    </form>
-    <br />
-    <label>Don't have an account? </label><a href="signup.html">Sign Up</a>
+    <div class="layer"></div>
+    <div class="centerBlock fade">
+        <h1>Welcome!</h1>
+        <form id="login" onsubmit="return false">
+            <input class="inputText" placeholder="Username" name="username" type="text">
+            <br>
+            <input class="inputText" placeholder="Password" type="password" name="password">
+            <br>
+            <input class="btn" type="submit" value="Login">
+        </form>
+        <br />
+        <span class="signup"><label>Don't have an account? </label><a href="signup.html">Sign Up</a></span>
+    </div>
     <script type="module" src="js/login.mjs"></script>
 </body>
 
