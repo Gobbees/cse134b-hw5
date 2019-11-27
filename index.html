@@ -8,17 +8,59 @@
     <script type="module" src="js/index.mjs"></script>
     <script type="module" src="js/client_worker.mjs"></script>
     <style>
-        body {
+        #mainDiv {
             display: none;
+        }
+        #dialog {
+            /* TODO */
         }
     </style>
 </head>
 <body>
-    <input type="button" id="btnLogout" value="Logout" title="Logout"/>
-    <h1>Xmas Wishlist</h1>
-    <ul id="wishlist"></ul>
-    <input type="button" id="btnAddItem" value="Add Item" title="Add item"/>
-    <button id="sync">CLICK ME</button>
-    <dialog id="dialog"></dialog>
+    <div id="mainDiv">
+        <input type="button" id="btnLogout" value="Logout" title="Logout"/>
+        <h1>Your Christmas Wishlist</h1>
+        <ul id="wishlist"></ul>
+        <input type="button" id="btnAddItem" value="Add Item" title="Add item"/>
+    </div>
+    <crud-dialog id="dialog"></crud-dialog>
+
+    <template id="add-edit-dialog">
+        <form onsubmit="return false">
+            <label>Item:</label><input type="text" id="item"/>
+            <br/>
+            <label>Price:</label><input type="number" id="price"/>
+            <br/>
+            <label>Category:</label>
+            <select id="category">
+                <option value="Tech">Tech</option>
+            </select>
+            <br/>
+            <label>Image:</label><input type="file" id="image" accept=".jpeg,.jpg,.png,.gif,.webp">
+            <br/>
+            <label>Comment:</label><textarea id="comment"></textarea>
+            <br/>
+            <input type="button" id="btnCancel" value="Cancel"/>
+            <input type="button" id="btnAdd" value="Add"/>
+        </form>
+    </template>
+    <template id="delete-dialog">
+        <form onsubmit="return false">
+            <label>Are you sure you want to delete this item?</label>
+            <input type="button" id="btnNo" value="No"/>
+            <input type="button" id="btnYes" value="Yes"/>
+        </form>
+    </template>
+    <template id="div-item">
+        <div>
+            <label id="lblItem"></label>
+            <label id="lblPrice"></label>
+            <label id="lblCategory"></label>
+            <label id="lblImage"></label>
+            <label id="lblComment"></label>
+            <input type="button" id="btnEdit" value="Edit"/>
+            <input type="button" id="btnDelete" value="Delete"/>
+        </div>
+    </template>
 </body>
 </html>

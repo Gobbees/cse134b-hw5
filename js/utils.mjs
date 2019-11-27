@@ -26,6 +26,7 @@ export const encodeFormData = (data) => {
  * @returns a dictionary containing all the data of the form
  */
 export function formToDict(form){
+    console.log(form);
     let dictionary = {}
     for (let pair of form.entries()) {
         let key = pair[0]
@@ -76,3 +77,10 @@ export function logout() {
         return fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
     }
 }
+
+export const imageToBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+});
