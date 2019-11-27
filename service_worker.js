@@ -1,13 +1,15 @@
+/**
+ * Handle the client commands. Client commands are in data.command and optional message in data.message
+ * @param {dictionary} data
+ * @returns {Promise} the promise which contains the result of the operation 
+ */
+function handleClientCommand(data){
+
+}
+
 self.addEventListener('message', function (event) {
     console.log('Handling message event:', event);
-    let promise = new Promise(function (resolve, reject) {
-        // the function is executed automatically when the promise is constructed
-
-        // after 1 second signal that the job is done with the result "done"
-        setTimeout(() => resolve(event.data.command + "ciao"), 1000);
-    });
-
-    promise.then((result) => {
+    handleClientCommand(event.data).then((result) => {
         self.clients.matchAll().then(function (clients) {
             clients.forEach(function (client) {
                 client.postMessage(result);

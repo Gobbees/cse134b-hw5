@@ -2,10 +2,29 @@ import {handleServiceWorkerDown} from "./index.mjs"
 
 const SECONDS_BETWEEN_SYNC = 2
 
-function showCommands() {
+/**
+ * Handle Service Worker Response
+ * @param data a dictionary containing the command given by the client and the result of the operation
+ */
+function handleServiceWorkerResponse(data){
+
+}
+
+/**
+ * This function send message to the worker with commands to execute
+ */
+function sendToWorker() {
+    if(localStorage.getItem("items") == null){
+        //This means that either we are in a new page and we have to retrieve from data from the server
+        sendMessage({
+            command: "retrieveFromServer"
+        }).catch((err) => console.log("The following error occured: " + err))
+    }
+    //Every K seconds we want to upload data from our local storage to the server
     setInterval(function () {
         sendMessage({
-            command: 'add'
+            command: 'syncToServer',
+            message: localStorage.getItem("items")
         }).catch((err) => console.log("The following error occured: " + err))
     }, SECONDS_BETWEEN_SYNC * 1000);
 }
@@ -40,7 +59,7 @@ if ('serviceWorker' in navigator) {
     // handler and taken control of the page, so you should see this message event fire once.
     // You can force it to fire again by visiting this page in an Incognito window.
     navigator.serviceWorker.addEventListener('message', function (event) {
-        console.log(event.data);
+        handleServiceWorkerResponse(event.data);
     });
 
     navigator.serviceWorker.register('service_worker.js')
@@ -52,7 +71,7 @@ if ('serviceWorker' in navigator) {
             return navigator.serviceWorker.ready;
         })
         // ...and then show the interface for the commands once it's ready.
-        .then(showCommands)
+        .then(sendToWorker)
         .catch(function (error) {
             // Something went wrong during registration. The service-worker.js file
             // might be unavailable or contain a syntax error.

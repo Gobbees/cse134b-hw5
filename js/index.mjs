@@ -4,7 +4,7 @@ import {logout, $} from "./utils.mjs"
 
 //TODO: function that handles non working service_worker
 export function handleServiceWorkerDown(){
-
+    
 }
 
 function updateData(data) {
