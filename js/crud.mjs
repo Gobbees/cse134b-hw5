@@ -1,13 +1,27 @@
-import {access_token} from "./index.mjs"
+import {access_token, updateData} from "./index.mjs"
+import {encodeFormData} from "./utils.mjs"
+import {fetchServer} from "./serverHandler.mjs"
 
 export function addItem(item) {
-    console.log(item);
+    let promiseResult = fetchServer(`/wishlists?access_token=${access_token}`, "POST", encodeFormData(item));
+    promiseResult.then(function (result) {
+        if (result != null) {
+            console.log(result);
+            updateData();
+        }
+    });
 }
 
 export function editItem() {
 
 }
 
-export function deleteItem() {
-
+export function deleteItem(id) {
+    let promiseResult = fetchServer(`/wishlists/${id}?access_token=${access_token}`, "DELETE", null);
+    promiseResult.then(function (result) {
+        if (result != null) {
+            console.log(result);
+            updateData();
+        }
+    });
 }

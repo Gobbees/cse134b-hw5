@@ -1,6 +1,6 @@
 import {$} from "./utils.mjs"
 import {addItem, editItem, deleteItem} from "./crud.mjs"
-import {imageToBase64} from "./utils.mjs"
+import {formToDict} from "./utils.mjs"
 
 /**
  * Sets the attributes for the add dialog and triggers the crud-dialog's attributeChangedCallback.
@@ -15,7 +15,6 @@ export function displayAddDialog() {
  * @param {div-item} item the div-item that is being edited.
  */
 export function displayEditDialog(item) {
-    console.log(item);
     $("dialog").setAttribute("data-item", item.getAttribute("data-item"));
     $("dialog").setAttribute("data-price", item.getAttribute("data-price"));
     $("dialog").setAttribute("data-category", item.getAttribute("data-category"));
@@ -67,12 +66,19 @@ export class CrudDialog extends HTMLElement {
         let templateContent = document.importNode(template.content, true);
         let dialog = document.createElement("dialog");
         templateContent.getElementById("btnAdd").addEventListener("click", () => {
-            console.log("Add placeholder"); //TODO
+            let formData = dialog.childNodes[1];
+            addItem(formToDict(new FormData(formData)));
+            dialog.removeAttribute("open"); //TODO make function
+            enableMainDiv();
         })
         templateContent.getElementById("btnCancel").addEventListener("click", () => {
             dialog.removeAttribute("open");
             enableMainDiv();
         });
+        templateContent.getElementById("btnUploadImage").addEventListener("click", function(){
+            let formData = dialog.childNodes[1];
+            getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
+        }, false);
         dialog.setAttribute("open", "true");
         dialog.appendChild(templateContent);
         this.appendChild(dialog);
@@ -103,7 +109,9 @@ export class CrudDialog extends HTMLElement {
         let template = document.querySelector("#delete-dialog");
         let templateContent = document.importNode(template.content, true);
         templateContent.getElementById("btnYes").addEventListener("click", () => {
-            console.log("Delete placeholder"); //TODO
+            deleteItem(id);
+            dialog.removeAttribute("open");
+            enableMainDiv();
         });
         templateContent.getElementById("btnNo").addEventListener("click", () => {
             dialog.removeAttribute("open");
@@ -142,3 +150,15 @@ export class CrudDialog extends HTMLElement {
     static get observedAttributes() { return ["open"]; }
 }
 
+function getImageUploadWidget(label, imageUrl) {
+    var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'xmas-ggobbi',
+    uploadPreset: 'aessl59k'}, (error, result) => { 
+        if (!error && result && result.event === "success") {
+            console.log('Done! Here is the image info: ', result.info);
+            imageUrl.value = result.info.secure_url
+            label.value = result.info.original_filename;
+        }
+    });
+    return myWidget;
+}
