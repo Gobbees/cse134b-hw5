@@ -12,8 +12,14 @@ export function addItem(item) {
     });
 }
 
-export function editItem() {
-
+export function editItem(item, id) {
+    let promiseResult = fetchServer(`/wishlists/${id}/replace?access_token=${access_token}`, "POST", encodeFormData(item));
+    promiseResult.then(function (result) {
+        if (result != null) {
+            console.log(result);
+            updateData();
+        }
+    });
 }
 
 export function deleteItem(id) {

@@ -84,7 +84,7 @@ export class CrudDialog extends HTMLElement {
         this.appendChild(dialog);
         disableMainDiv();
     }
-    populateAndDisplayEdit(item, price, category, image, comment) {
+    populateAndDisplayEdit(item, price, category, image, comment, id) {
         let template = document.querySelector("#add-edit-dialog");
         let templateContent = document.importNode(template.content, true);
         templateContent.getElementById("item").setAttribute("value", item);
@@ -93,7 +93,10 @@ export class CrudDialog extends HTMLElement {
         templateContent.getElementById("image").setAttribute("value", image);
         templateContent.getElementById("comment").innerText = comment;
         templateContent.getElementById("btnAdd").addEventListener("click", () => {
-            console.log("Edit placeholder"); //TODO
+            let formData = dialog.childNodes[1];
+            editItem(formToDict(new FormData(formData)), id);
+            dialog.removeAttribute("open"); //TODO make function
+            enableMainDiv();
         })
         templateContent.getElementById("btnCancel").addEventListener("click", () => {
             dialog.removeAttribute("open");
