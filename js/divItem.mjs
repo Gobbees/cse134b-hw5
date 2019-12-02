@@ -9,20 +9,19 @@ export class DivItem extends HTMLElement {
     }
 
     fill() {
-        var content = document.querySelector("#div-item");
-        content = document.importNode(content.content, true);
-        content.getElementById("lblItem").innerText = this.getAttribute("data-item");
-        content.getElementById("lblPrice").innerText = this.getAttribute("data-price");
-        content.getElementById("lblCategory").innerText = this.getAttribute("data-category");
-        content.getElementById("lblImage").innerText = this.getAttribute("data-image");
-        content.getElementById("lblComment").innerText = this.getAttribute("data-comment");
-        content.getElementById("btnEdit").addEventListener("click", () => displayEditDialog(this));
-        content.getElementById("btnDelete").addEventListener("click", () => displayDeleteDialog(this));
-        this.appendChild(content);
+        var template = document.querySelector("#div-item");
+        var templateContent = document.importNode(template.content, true);
+        templateContent.querySelector(".lblItem").innerText = this.getAttribute("data-item");
+        templateContent.querySelector(".lblPrice").innerText = this.getAttribute("data-price");
+        templateContent.querySelector(".lblCategory").innerText = this.getAttribute("data-category");
+        templateContent.querySelector(".imgImage").setAttribute("src", this.getAttribute("data-image"));
+        templateContent.querySelector(".lblComment").innerText = this.getAttribute("data-comment");
+        templateContent.querySelector(".btnEdit").addEventListener("click", () => displayEditDialog(this));
+        templateContent.querySelector(".btnDelete").addEventListener("click", () => displayDeleteDialog(this));
+        this.appendChild(templateContent);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log(`Custom square ready`);
         this.fill();
     }
 

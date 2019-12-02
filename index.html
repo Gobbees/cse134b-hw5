@@ -21,6 +21,9 @@
         #dialog {
             /* TODO */
         }
+        #wishlist {
+            /* TODO */
+        }
     </style>
 </head>
 
@@ -29,7 +32,7 @@
     <div id="mainDiv">
         <button id="btnLogout" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
         <h1>Your Christmas Wishlist</h1>
-        <ul id="wishlist"></ul>
+        <div id="wishlist"></div>
         <button id="btnAddItem" title="Add item" ><i class="fas fa-plus-circle"></i></button>
     </div>
     <crud-dialog id="dialog"></crud-dialog>
@@ -63,13 +66,13 @@
     </template>
     <template id="div-item">
         <div>
-            <label id="lblItem"></label>
-            <label id="lblPrice"></label>
-            <label id="lblCategory"></label>
-            <label id="lblImage"></label>
-            <label id="lblComment"></label>
-            <input type="button" id="btnEdit" value="Edit" />
-            <input type="button" id="btnDelete" value="Delete" />
+            Item name: <label class="lblItem"></label> <br>
+            Price: <label class="lblPrice"></label> <br>
+            Category: <label class="lblCategory"></label> <br>
+            <img src="" class="imgImage"/> <br>
+            Comment: <label class="lblComment"></label> <br>
+            <input type="button" class="btnEdit" value="Edit" />
+            <input type="button" class="btnDelete" value="Delete" />
         </div>
     </template>
 </body>
