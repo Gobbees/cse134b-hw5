@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-body {
+#mainDiv {
+    display: none; /* because otherwise the main page will display for an instant even when logged out */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     font-family: 'Poppins', sans-serif;
     background-image: url("/resources/christmas.jpg");
     margin: 0 auto 0 auto;
-    width: 100%;
-    text-align: center;
     margin: 20px 0px 20px 0px;
+    padding: 1vw;  
 }
 
 .layer {
@@ -66,4 +71,49 @@ body {
     font-weight: 500;
     font-size: 1.2em;
     cursor: pointer;
+}
+
+#wishlist {
+    display: grid;
+    grid-gap: 10px 20px;
+    grid-auto-columns: 350px;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.item {
+    background-color: rgba(54, 53, 51, 0.5);
+    padding: 10px;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.divImage {
+    text-align: right;
+}
+.imgImage {
+    width: 100%;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+    #wishlist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #wishlist {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    #wishlist {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

@@ -18,7 +18,6 @@ export function updateData() {
         var items = 0;
         wishlist.innerHTML = "";
         data.wishItems.forEach(element => {
-            console.log(element);
             let divItem = document.createElement("div-item");
             divItem.setAttribute("data-item", element.item);
             divItem.setAttribute("data-price", element.price);
