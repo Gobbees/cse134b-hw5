@@ -6,11 +6,6 @@ import {DivItem} from "./divItem.mjs"
 
 export var access_token;
 
-//TODO: function that handles non working service_worker
-export function handleServiceWorkerDown(){
-    
-}
-
 export function updateData() {
     let promiseResult = fetchServer(`/wishlists/myWishlist?access_token=${access_token}`, "GET", null);
     promiseResult.then((data) => {

@@ -63,8 +63,13 @@ h1 {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover{
     background: #2CC06B;
+    border: #1f8b4c 1px solid;
+}
+
+.btn:focus{
+    border: #1f8b4c 2px solid;
 }
 
 .signup {

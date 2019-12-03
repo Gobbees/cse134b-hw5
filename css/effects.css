@@ -1,0 +1,24 @@
+.fade {
+    animation: fade 2s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.img-hover-zoom--brightness img {
+    transition: filter 0.75s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(75%);
+}
+
+
+.img-hover-zoom--brightness:hover img {
+    filter: brightness(100%);
+}

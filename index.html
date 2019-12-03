@@ -9,8 +9,8 @@
     <script type="module" src="js/index.mjs"></script>
     <script type="module" src="js/client_worker.mjs"></script>
     <link rel="stylesheet" href="/css/index.css">
-
-    <!--In a real project I would only import the icons I really need-->
+    <link rel="stylesheet" href="/css/scrollbar.css">
+    <link rel="stylesheet" href="/css/effects.css" <!--In a real project I would only import the icons I really need-->
     <script src="https://kit.fontawesome.com/ed643a9155.js" crossorigin="anonymous"></script>
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.min.js"></script>
@@ -18,6 +18,7 @@
         #dialog {
             /* TODO */
         }
+
         #wishlist {
             /* TODO */
         }
@@ -27,31 +28,32 @@
 <body>
     <div class="layer"></div>
     <div id="mainDiv">
-        <button id="btnLogout" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
-        <h1>Your Christmas Wishlist</h1>
+        <button id="btnLogout" class="fade" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+        <h1 class="title fade">Your Christmas Wishlist</h1>
         <div id="wishlist"></div>
-        <button id="btnAddItem" title="Add item" ><i class="fas fa-plus-circle"></i></button>
+        <button id="btnAddItem" class="fade" title="Add item"><i class="fas fa-plus-circle"></i></button>
     </div>
     <crud-dialog id="dialog"></crud-dialog>
 
     <template id="add-edit-dialog">
         <form onsubmit="return false">
-            <label for="item">Item:</label><input type="item" name="item" id="item"/>
-            <br/>
-            <label for="price">Price:</label><input type="number" name="price" id="price" min="0"/>
-            <br/>
+            <label for="item">Item:</label><input type="item" name="item" id="item" />
+            <br />
+            <label for="price">Price:</label><input type="number" name="price" id="price" min="0" />
+            <br />
             <label for="category">Category:</label>
             <select name="category" id="category">
                 <option value="Tech">Tech</option>
             </select>
-            <br/>
-            <label>Image:</label><button id="btnUploadImage">Upload</button><input type="text" id="lblFileName"/><!-- TEMP //TODO -->
-            <input type="hidden" name="image" id="image"/>
-            <br/>
+            <br />
+            <label>Image:</label><button id="btnUploadImage">Upload</button><input type="text" id="lblFileName" />
+            <!-- TEMP //TODO -->
+            <input type="hidden" name="image" id="image" />
+            <br />
             <label for="comment">Comment:</label><textarea name="comment" id="comment"></textarea>
-            <br/>
-            <input type="button" id="btnCancel" value="Cancel"/>
-            <input type="button" id="btnAdd" value="Add"/>
+            <br />
+            <input type="button" id="btnCancel" value="Cancel" />
+            <input type="button" id="btnAdd" value="Add" />
         </form>
     </template>
     <template id="delete-dialog">
@@ -62,17 +64,15 @@
         </form>
     </template>
     <template id="div-item">
-        <div class="item">
-            <div class="divText">
-            <label class="lblItem"></label> <br>
-            <label class="lblPrice"></label> $ <br>
-            ( <label class="lblCategory"></label> ) <br>
-            Comment: <label class="lblComment"></label> <br>
-            <input type="button" class="btnEdit" value="Edit" />
-            <input type="button" class="btnDelete" value="Delete" />
-            </div>
-            <div class="divImage">
-                <img src="" class="imgImage"/> <br>
+        <div class="item fade">
+            <label class="lblItem gridItem"></label> <br>
+            <label class="gridPrice"><label class="lblPrice"></label>$</label><br>
+            <label class="gridCategory">( <label class="lblCategory"></label> )</label> <br>
+            <label class="gridComment lblComment"></label><br>
+            <button id="editPanel" class="btnEdit btn" value="Edit"><i class="fas fa-edit"></i></button>
+            <button id="deletePanel" class="btnDelete btn" value="Delete"><i class="fas fa-trash"></i></button>
+            <div class="divImage img-hover-zoom--brightness">
+                <img src="" class="imgImage" /> <br>
             </div>
         </div>
     </template>
