@@ -18,6 +18,7 @@ export class DivItem extends HTMLElement {
         templateContent.querySelector(".lblComment").innerText = this.getAttribute("data-comment");
         templateContent.querySelector(".btnEdit").addEventListener("click", () => displayEditDialog(this));
         templateContent.querySelector(".btnDelete").addEventListener("click", () => displayDeleteDialog(this));
+        templateContent.querySelector(".imgImage").addEventListener("click", () => window.open(this.getAttribute("data-image")));
         this.appendChild(templateContent);
     }
 

@@ -30,6 +30,7 @@
     border: #ae2727 1px solid;
     font-weight: 500;
     font-size: 1.2em;
+    cursor: pointer;
 }
 
 #btnLogout:hover {
@@ -56,6 +57,7 @@
     border: #27ae60 1px solid;
     font-weight: 500;
     font-size: 1.2em;
+    cursor: pointer;
 }
 
 #btnAddItem:hover {
@@ -76,7 +78,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
-    height: 70%;
+    height: 85%;
 }
 
 #editPanel {
@@ -161,6 +163,7 @@
 .imgImage {
     max-width: 100%;
     max-height: 100%;
+    cursor: pointer;
 }
 
 .btn {
@@ -175,6 +178,7 @@
     margin-top: 30px;
     font-weight: 500;
     font-size: 1.2em;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -190,14 +194,14 @@
 @media only screen and (min-width: 650px) {
     #wishlist {
         grid-template-columns: repeat(2, 1fr);
-        height: 75%;
+        height: 85%;
     }
 }
 
 @media only screen and (min-width: 1000px) {
     #wishlist {
         grid-template-columns: repeat(3, 1fr);
-        height: 80%;
+        height: 85%;
     }
 }
 
