@@ -20,6 +20,9 @@ function _prepareDict(target) {
     return true;
 }
 
+/**
+ * Submit the signup form to the server
+ */
 function submitForm() {
     let dictionaryData = formToDict(new FormData($("signup")));
     if (_prepareDict(dictionaryData)) {
