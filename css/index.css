@@ -78,7 +78,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
-    height: 85%;
+    height: 75%;
 }
 
 #editPanel {
@@ -194,7 +194,7 @@
 @media only screen and (min-width: 650px) {
     #wishlist {
         grid-template-columns: repeat(2, 1fr);
-        height: 85%;
+        height: 75%;
     }
 }
 
