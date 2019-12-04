@@ -37,30 +37,43 @@
 
     <template id="add-edit-dialog">
         <form onsubmit="return false">
-            <label for="item">Item:</label><input type="item" name="item" id="item" />
-            <br />
-            <label for="price">Price:</label><input type="number" name="price" id="price" min="0" />
-            <br />
-            <label for="category">Category:</label>
-            <select name="category" id="category">
-                <option value="Tech">Tech</option>
-            </select>
-            <br />
-            <label>Image:</label><button id="btnUploadImage">Upload</button><input type="text" id="lblFileName" />
-            <!-- TEMP //TODO -->
-            <input type="hidden" name="image" id="image" />
-            <br />
-            <label for="comment">Comment:</label><textarea name="comment" id="comment"></textarea>
-            <br />
-            <input type="button" id="btnCancel" value="Cancel" />
-            <input type="button" id="btnAdd" value="Add" />
+            <div id="addEditMainDiv">
+                <div id="addEditLabels">
+                    <label>Item:</label><br />
+                    <label>Price:</label><br />
+                    <label>Category:</label><br />
+                    <label>Image:</label><br /><br /><br />
+                    <label>Comment:</label>
+                </div>
+                <div id="addEditInputs">
+                    <input type="item" name="item" id="item" class="dialogInput"/>
+                    <br />
+                    <input type="number" name="price" id="price" min="0" class="dialogInput"/>
+                    <br />
+                    <input type="text" name="category" id="category" list="categories" class="dialogInput"/>
+                    <datalist id="categories">
+                        <option>Tech</option>
+                        <option>Clothing</option>
+                        <option>Home</option>
+                        <option>Food</option>
+                        <option>Education</option>
+                    </datalist>
+                    <br />
+                    <input type="text" id="lblFileName"/><button id="btnUploadImage">Upload</button>
+                    <input type="hidden" name="image" id="image" />
+                    <br /><br />
+                    <textarea name="comment" id="comment" class="dialogInput"></textarea>
+                </div>
+            </div>
+            <input type="button" id="btnCancel" class="dialogBtn" value="Cancel" />
+            <input type="button" id="btnAdd" class="dialogBtn" value="Add" />
         </form>
     </template>
     <template id="delete-dialog">
         <form onsubmit="return false">
-            <label>Are you sure you want to delete this item?</label>
-            <input type="button" id="btnNo" value="No" />
-            <input type="button" id="btnYes" value="Yes" />
+            <label>Are you sure you want to delete this item?</label><br>
+            <input type="button" id="btnNo" class="dialogBtn" value="No" />
+            <input type="button" id="btnYes" class="dialogBtn" value="Yes" />
         </form>
     </template>
     <template id="div-item">

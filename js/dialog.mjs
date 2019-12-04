@@ -102,6 +102,10 @@ export class CrudDialog extends HTMLElement {
             dialog.removeAttribute("open");
             enableMainDiv();
         });
+        templateContent.getElementById("btnUploadImage").addEventListener("click", function(){
+            let formData = dialog.childNodes[1];
+            getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
+        }, false);
         let dialog = document.createElement("dialog");
         dialog.appendChild(templateContent);
         dialog.setAttribute("open", "true");

@@ -217,3 +217,92 @@
         margin-top: 50px;
     }
 }
+
+dialog {
+    position: fixed;
+    margin-top: 40vh;
+    font-family: 'Poppins', sans-serif;
+    border: solid;
+    border-radius: 8px;
+    background-color: rgb(150, 150, 150);
+}
+
+#addEditMainDiv {
+    display: flex;
+    justify-content: center;
+}
+#addEditLabels {
+    width: 110px;
+}
+#addEditLabels label{
+    font-size: 1em;
+}
+#addEditInputs {
+    text-align: right;
+}
+.dialogBtn {
+    background: #1aa3e2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    border-radius: 4px;
+    border: #1485b9 1px solid;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.dialogInput {
+    width: 140px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(150, 150, 150);
+    border-style: solid;
+    border-width: 2px;
+    font-size: 0.8em;
+}
+#btnUploadImage {
+    background: #1aa3e2;
+    width: 50px;
+    height: auto;
+    color: white;
+    border-radius: 4px;
+    border: #1485b9 1px solid;
+    cursor: pointer;
+    height: 20px;
+}
+#lblFileName {
+    width: 90px;
+    height: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(150, 150, 150);   
+    border-style: solid;
+    border-width: 2px;
+    pointer-events: none;
+}
+#comment {
+    resize: none;
+    height: 50px;
+}
+
+#btnYes, #btnAdd{
+    background: #2ecc71;;
+    border: #27ae60 1px solid;
+}
+#btnYes:hover, #btnAdd:hover{
+    background: #2CC06B;
+    border: #1f8b4c 1px solid;
+}
+#btnYes:focus, #btnAdd:focus{
+    border: #1f8b4c 2px solid;
+}
+#btnNo, #btnCancel{
+    background: #cc2e2e;
+    border: #ae2727 1px solid;
+}
+#btnNo:hover, #btnCancel:hover{
+    background: #ae2727;
+    border: #801f1f 1px solid;
+}
+#btnNo:focus, #btnCancel:focus{
+    border: #801f1f 2px solid;
+}
