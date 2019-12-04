@@ -77,6 +77,8 @@ export function logout() {
     if (access_token != undefined) {
         document.cookie = `access_token=NONE; expires=Thu, 01 Jan 1970 00:00:00 GMT"; path=/`
         return fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
+    }else{
+        return Promise.resolve()
     }
 }
 
