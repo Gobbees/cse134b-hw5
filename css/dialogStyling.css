@@ -3,6 +3,7 @@ dialog {
     margin-top: 40vh;
     font-family: 'Poppins', sans-serif;
     border: rgba(0, 0, 0, 0.8) 4px solid;
+    border-radius: 8px;
     background-color: rgb(59, 59, 59);
     color: white;
 }

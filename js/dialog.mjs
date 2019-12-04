@@ -73,6 +73,7 @@ export class CrudDialog extends HTMLElement {
         let template = document.querySelector("#add-edit-dialog");
         let templateContent = document.importNode(template.content, true);
         let dialog = document.createElement("dialog");
+        dialog.setAttribute("class", "fade");
         templateContent.getElementById("btnAdd").addEventListener("click", () => {
             let formData = dialog.childNodes[1];
             addItem(formToDict(new FormData(formData)));
@@ -87,14 +88,16 @@ export class CrudDialog extends HTMLElement {
             let formData = dialog.childNodes[1];
             getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
         }, false);
-        dialog.setAttribute("open", "true");
         dialog.appendChild(templateContent);
+        dialog.setAttribute("open", "true");
         this.appendChild(dialog);
         disableMainDiv();
     }
     populateAndDisplayEdit(item, price, category, image, comment, id) {
         let template = document.querySelector("#add-edit-dialog");
         let templateContent = document.importNode(template.content, true);
+        let dialog = document.createElement("dialog");
+        dialog.setAttribute("class", "fade");
         templateContent.getElementById("item").setAttribute("value", item);
         templateContent.getElementById("price").setAttribute("value", price);
         templateContent.getElementById("category").setAttribute("value", category);
@@ -114,7 +117,7 @@ export class CrudDialog extends HTMLElement {
             let formData = dialog.childNodes[1];
             getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
         }, false);
-        let dialog = document.createElement("dialog");
+
         dialog.appendChild(templateContent);
         dialog.setAttribute("open", "true");
         this.appendChild(dialog);
@@ -123,6 +126,8 @@ export class CrudDialog extends HTMLElement {
     populateAndDisplayDelete(id) {
         let template = document.querySelector("#delete-dialog");
         let templateContent = document.importNode(template.content, true);
+        let dialog = document.createElement("dialog");
+        dialog.setAttribute("class", "fade");
         templateContent.getElementById("btnYes").addEventListener("click", () => {
             deleteItem(id);
             dialog.removeAttribute("open");
@@ -132,18 +137,14 @@ export class CrudDialog extends HTMLElement {
             dialog.removeAttribute("open");
             enableMainDiv();
         });
-        let dialog = document.createElement("dialog");
-        dialog.setAttribute("open", "true");
         dialog.appendChild(templateContent);
+        dialog.setAttribute("open", "true");
         this.appendChild(dialog);
         disableMainDiv();
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log(`Custom square element attributes changed: ${name} from ${oldValue} to ${newValue}`);
-        let type = this.getAttribute("type");
-        console.log(type);
-        switch (type) {
+        switch (this.getAttribute("type")) {
             case "add":
                 this.populateAndDisplayAdd();
                 break;
@@ -173,7 +174,6 @@ function getImageUploadWidget(label, imageUrl) {
         uploadPreset: 'aessl59k'
     }, (error, result) => {
         if (!error && result && result.event === "success") {
-            console.log('Done! Here is the image info: ', result.info);
             imageUrl.value = result.info.secure_url
             label.value = result.info.original_filename;
         }
