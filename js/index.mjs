@@ -1,5 +1,6 @@
 import {
-    checkSession
+    checkSession,
+    getUser
 } from "./session.mjs"
 import {
     fetchServer
@@ -50,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     customElements.define("crud-dialog", CrudDialog);
     customElements.define("div-item", DivItem);
+    $("title").innerText = "Welcome, " + getUser();
     $("mainDiv").style.display = "inherit";
     $("btnAddItem").addEventListener("click", () => {
         displayAddDialog();
