@@ -13,10 +13,10 @@ export function checkSession() {
 function extractAccessToken(cookie) {
     var cookieName = "access_token="
     var values = cookie.split(';');
-    for(var i = 0; i < values.length; i++) {
+    for (var i = 0; i < values.length; i++) {
         var value = values[i].trim();
         if (value.indexOf(cookieName) == 0)
-        return value.substring(cookieName.length, value.length);
+            return value.substring(cookieName.length, value.length);
     }
     return undefined;
 }

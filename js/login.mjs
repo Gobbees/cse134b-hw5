@@ -1,8 +1,12 @@
-import {$, formToDict, login} from "./utils.mjs"
+import {
+    $,
+    formToDict,
+    login
+} from "./utils.mjs"
 
 function submitForm() {
     let data = formToDict(new FormData($("login")));
-    if(data.username.includes("@")){
+    if (data.username.includes("@")) {
         data.email = data.username;
         delete data.username;
     }
@@ -10,4 +14,3 @@ function submitForm() {
 }
 
 $("login").addEventListener("submit", () => submitForm());
-

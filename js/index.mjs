@@ -1,8 +1,20 @@
-import {checkSession} from "./session.mjs"
-import {fetchServer} from "./serverHandler.mjs"
-import {logout, $} from "./utils.mjs"
-import {displayAddDialog, CrudDialog} from "./dialog.mjs"
-import {DivItem} from "./divItem.mjs"
+import {
+    checkSession
+} from "./session.mjs"
+import {
+    fetchServer
+} from "./serverHandler.mjs"
+import {
+    logout,
+    $
+} from "./utils.mjs"
+import {
+    displayAddDialog,
+    CrudDialog
+} from "./dialog.mjs"
+import {
+    DivItem
+} from "./divItem.mjs"
 
 export var access_token;
 
@@ -24,7 +36,7 @@ export function updateData() {
             wishlist.appendChild(divItem);
             items++;
         });
-        if(items == 0) {
+        if (items == 0) {
             wishlist.innerText = "No items currently listed";
         }
     });
@@ -32,7 +44,7 @@ export function updateData() {
 
 window.addEventListener("DOMContentLoaded", () => {
     access_token = checkSession();
-    if(access_token == undefined) {
+    if (access_token == undefined) {
         window.location.href = "login.html";
         return;
     }
@@ -41,7 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
     $("mainDiv").style.display = "inherit";
     $("btnAddItem").addEventListener("click", () => {
         displayAddDialog();
-    });    
+    });
     $("btnLogout").addEventListener("click", () => {
         let promise = logout();
         promise.then(() => window.location.href = "login.html");

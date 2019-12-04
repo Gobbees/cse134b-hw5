@@ -1,4 +1,6 @@
-import {fetchServer} from "./serverHandler.mjs"
+import {
+    fetchServer
+} from "./serverHandler.mjs"
 
 /**
  * Shortcut for document.getElementById
@@ -25,13 +27,13 @@ export const encodeFormData = (data) => {
  * @param form 
  * @returns a dictionary containing all the data of the form
  */
-export function formToDict(form){
+export function formToDict(form) {
     console.log(form);
     let dictionary = {}
     for (let pair of form.entries()) {
         let key = pair[0]
         let value = DOMPurify.sanitize(pair[1])
-        dictionary[key] = value; 
+        dictionary[key] = value;
     }
     return dictionary
 }
@@ -46,9 +48,9 @@ export function login(data) {
         if (result != null) {
             let expirationDate = new Date(new Date().getTime() + result.ttl).toGMTString();
             document.cookie = `access_token=${result.id}; expires=${expirationDate}; path=/ `;
-            if(data.username == null){
+            if (data.username == null) {
                 document.cookie = `user=${data.email}; expires=${expirationDate}; path=/`;
-            }else{
+            } else {
                 document.cookie = `user=${data.username}; expires=${expirationDate}; path=/`;
             }
             window.location.href = "index.html";
@@ -72,15 +74,15 @@ export function getCookieValue(name) {
  */
 export function logout() {
     let access_token = getCookieValue("access_token");
-    if(access_token != undefined){
+    if (access_token != undefined) {
         document.cookie = `access_token=NONE; expires=Thu, 01 Jan 1970 00:00:00 GMT"; path=/`
         return fetchServer(`/Users/logout?access_token=${access_token}`, "POST", "");
     }
 }
 
 export const imageToBase64 = file => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
 });

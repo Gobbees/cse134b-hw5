@@ -1,6 +1,14 @@
-import {$} from "./utils.mjs"
-import {addItem, editItem, deleteItem} from "./crud.mjs"
-import {formToDict} from "./utils.mjs"
+import {
+    $
+} from "./utils.mjs"
+import {
+    addItem,
+    editItem,
+    deleteItem
+} from "./crud.mjs"
+import {
+    formToDict
+} from "./utils.mjs"
 
 /**
  * Sets the attributes for the add dialog and triggers the crud-dialog's attributeChangedCallback.
@@ -75,7 +83,7 @@ export class CrudDialog extends HTMLElement {
             dialog.removeAttribute("open");
             enableMainDiv();
         });
-        templateContent.getElementById("btnUploadImage").addEventListener("click", function(){
+        templateContent.getElementById("btnUploadImage").addEventListener("click", function () {
             let formData = dialog.childNodes[1];
             getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
         }, false);
@@ -102,7 +110,7 @@ export class CrudDialog extends HTMLElement {
             dialog.removeAttribute("open");
             enableMainDiv();
         });
-        templateContent.getElementById("btnUploadImage").addEventListener("click", function(){
+        templateContent.getElementById("btnUploadImage").addEventListener("click", function () {
             let formData = dialog.childNodes[1];
             getImageUploadWidget(formData["lblFileName"], formData["image"]).open();
         }, false);
@@ -130,22 +138,22 @@ export class CrudDialog extends HTMLElement {
         this.appendChild(dialog);
         disableMainDiv();
     }
- 
+
     attributeChangedCallback(name, oldValue, newValue) {
         console.log(`Custom square element attributes changed: ${name} from ${oldValue} to ${newValue}`);
         let type = this.getAttribute("type");
         console.log(type);
-        switch(type) {
+        switch (type) {
             case "add":
                 this.populateAndDisplayAdd();
                 break;
             case "edit":
                 this.populateAndDisplayEdit(
-                    this.getAttribute("data-item"), 
-                    this.getAttribute("data-price"), 
-                    this.getAttribute("data-category"), 
-                    this.getAttribute("data-image"), 
-                    this.getAttribute("data-comment"), 
+                    this.getAttribute("data-item"),
+                    this.getAttribute("data-price"),
+                    this.getAttribute("data-category"),
+                    this.getAttribute("data-image"),
+                    this.getAttribute("data-comment"),
                     this.getAttribute("data-id"));
                 break;
             case "delete":
@@ -154,13 +162,16 @@ export class CrudDialog extends HTMLElement {
         }
     }
 
-    static get observedAttributes() { return ["open"]; }
+    static get observedAttributes() {
+        return ["open"];
+    }
 }
 
 function getImageUploadWidget(label, imageUrl) {
     var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'xmas-ggobbi',
-    uploadPreset: 'aessl59k'}, (error, result) => { 
+        cloudName: 'xmas-ggobbi',
+        uploadPreset: 'aessl59k'
+    }, (error, result) => {
         if (!error && result && result.event === "success") {
             console.log('Done! Here is the image info: ', result.info);
             imageUrl.value = result.info.secure_url

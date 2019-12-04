@@ -1,4 +1,7 @@
-import {displayEditDialog, displayDeleteDialog} from "./dialog.mjs"
+import {
+    displayEditDialog,
+    displayDeleteDialog
+} from "./dialog.mjs"
 
 /**
  * Custom element DivItem => <div-item>
@@ -26,5 +29,7 @@ export class DivItem extends HTMLElement {
         this.fill();
     }
 
-    static get observedAttributes() { return ["ready"]; }
+    static get observedAttributes() {
+        return ["ready"];
+    }
 }

@@ -1,6 +1,13 @@
-import {access_token, updateData} from "./index.mjs"
-import {encodeFormData} from "./utils.mjs"
-import {fetchServer} from "./serverHandler.mjs"
+import {
+    access_token,
+    updateData
+} from "./index.mjs"
+import {
+    encodeFormData
+} from "./utils.mjs"
+import {
+    fetchServer
+} from "./serverHandler.mjs"
 
 export function addItem(item) {
     let promiseResult = fetchServer(`/wishlists?access_token=${access_token}`, "POST", encodeFormData(item));
