@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>XmasWishlist</title>
     <script type="module" src="js/index.mjs"></script>
-    <script type="module" src="js/client_worker.mjs"></script>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/scrollbar.css">
     <link rel="stylesheet" href="/css/effects.css">
@@ -22,7 +21,7 @@
     <div id="mainDiv">
         <div class="layer"></div>
         <button id="btnLogout" class="fade" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
-        <h1 class="title fade">Your Christmas Wishlist</h1>
+        <h1 class="title fade" id="title"></h1>
         <div id="wishlist"></div>
         <button id="btnAddItem" class="fade" title="Add item"><i class="fas fa-plus-circle"></i></button>
     </div>
