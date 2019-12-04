@@ -38,7 +38,7 @@ export async function fetchServer(suburl, method, body) {
             }
         });
     } catch (error) {
-        alert(`The following problem has happened: ${error}. Please try again`);
+        alert("We couldn't connect to the server. While we ask our monkeys why it doesn't work, can you check your internet connection?")
     }
     if (fetchResult["json"] != null) {
         return fetchResult["json"];
