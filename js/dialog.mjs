@@ -77,7 +77,7 @@ export class CrudDialog extends HTMLElement {
         templateContent.getElementById("btnAdd").addEventListener("click", () => {
             let formData = dialog.childNodes[1];
             addItem(formToDict(new FormData(formData)));
-            dialog.removeAttribute("open"); //TODO make function
+            dialog.removeAttribute("open");
             enableMainDiv();
         })
         templateContent.getElementById("btnCancel").addEventListener("click", () => {
@@ -106,7 +106,7 @@ export class CrudDialog extends HTMLElement {
         templateContent.getElementById("btnAdd").addEventListener("click", () => {
             let formData = dialog.childNodes[1];
             editItem(formToDict(new FormData(formData)), id);
-            dialog.removeAttribute("open"); //TODO make function
+            dialog.removeAttribute("open");
             enableMainDiv();
         })
         templateContent.getElementById("btnCancel").addEventListener("click", () => {
