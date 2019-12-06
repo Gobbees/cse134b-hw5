@@ -53,7 +53,7 @@ export function login(data) {
             } else {
                 document.cookie = `user=${data.username}; expires=${expirationDate}; path=/`;
             }
-            window.location.href = "index.html";
+            window.location.href = "crud.html";
         }
     });
 }
