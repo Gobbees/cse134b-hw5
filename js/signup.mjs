@@ -30,6 +30,7 @@ function submitForm() {
         promiseResult.then(function (result) {
             if (result != null) {
                 console.log("signup successful!");
+                window.location.href = "login.html";
             }
         })
     }
