@@ -1,12 +1,11 @@
 import {
     fetchServer
-} from "/public/js/serverHandler.mjs"
+} from "./serverHandler.mjs"
 import {
     encodeFormData,
     $,
-    formToDict,
-    login
-} from "/public/js/utils.mjs"
+    formToDict
+} from "./utils.mjs"
 
 
 
