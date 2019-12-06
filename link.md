@@ -1,1 +1,1 @@
-cse134b-xmaswishlist.firebaseapp.com
+cse134b-notebook.firebaseapp.com
