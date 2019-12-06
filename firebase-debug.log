@@ -1,0 +1,35 @@
+[debug] [2019-12-06T21:02:10.895Z] ----------------------------------------------------------------------
+[debug] [2019-12-06T21:02:10.898Z] Command:       /usr/local/bin/firebase /Users/ggobbi/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2019-12-06T21:02:10.898Z] CLI Version:   7.4.0
+[debug] [2019-12-06T21:02:10.898Z] Platform:      darwin
+[debug] [2019-12-06T21:02:10.898Z] Node Version:  v8.16.0
+[debug] [2019-12-06T21:02:10.898Z] Time:          Fri Dec 06 2019 13:02:10 GMT-0800 (PST)
+[debug] [2019-12-06T21:02:10.898Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-12-06T21:02:10.913Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-06T21:02:10.913Z] > authorizing via signed-in user
+[debug] [2019-12-06T21:02:10.913Z] [iam] checking project cse134b-xmaswishlist for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-12-06T21:02:10.915Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-06T21:02:10.915Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-06T21:02:11.112Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-06T21:02:11.129Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cse134b-xmaswishlist:testIamPermissions  
+
+[debug] [2019-12-06T21:02:11.441Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-06T21:02:11.443Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cse134b-xmaswishlist  
+ 
+[debug] [2019-12-06T21:02:11.719Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'cse134b-xmaswishlist'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-12-06T21:02:11.725Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/cse134b-xmaswishlist/versions  
+
+[debug] [2019-12-06T21:02:12.830Z] <<< HTTP RESPONSE 200
+[info] i  hosting[cse134b-xmaswishlist]: beginning deploy...
+[info] i  hosting[cse134b-xmaswishlist]: found 481 files in .
+[debug] [2019-12-06T21:02:12.987Z] [hosting] hash cache [] load error: lines is not defined
+[debug] [2019-12-06T21:02:13.243Z] [hosting] hash cache [] stored for 481 files
+[debug] [2019-12-06T21:02:13.243Z] [hosting][hash queue][FINAL]
+[debug] [2019-12-06T21:02:13.243Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/cse134b-xmaswishlist/versions/d4b0520625d06135:populateFiles  
+ <request body omitted>
