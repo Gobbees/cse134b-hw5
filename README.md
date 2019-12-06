@@ -3,9 +3,9 @@
 
 [Link to the solution](https://cse134b-notebook.firebaseapp.com/)
 
-Extra credit:
+# List of extra credit features
 
--A flashier interface
--A mobile interface
--Web component Use
--Early deadline
+1. Mobile interface
+1. A flashier interface
+1. Web component use
+1. Early deadline
